@@ -7,11 +7,12 @@ import KanbanColumn from "./temp/KanbanColumn";
 
 const App = () => {
   const [candidates, setCandidates] = useState([
-    { id: "1", name: "candidate 1", status: "Resume Shortlisted" },
-    { id: "2", name: "candidate 2", status: "Assessment passed" },
-    { id: "3", name: "candidate 3", status: "1st interview passed" },
-    { id: "4", name: "candidate 4", status: "final interview passed" },
-    { id: "5", name: "candidate 5", status: "job offered" }
+    { id: "1", name: "sudhanshu 1", status: "Resume Shortlisted" },
+    { id: "2", name: "raj 2", status: "Assessment passed" },
+    { id: "3", name: "shivam 3", status: "1st interview passed" },
+    { id: "4", name: "parul 4", status: "final interview passed" },
+    { id: "5", name: "mansi 5", status: "job offered" },
+    { id: "6", name: "bhings 6", status: "job offered" }
   ]);
 
   const onDragStart = (e, candidateId) => {
@@ -33,7 +34,8 @@ const App = () => {
   };
 
   return (
-    <div className="kanban-board">
+    <div className="kanban-board" 
+    >
       <KanbanColumn
         title="Resume Shortlisted"
         candidates={candidates.filter((candidate) => candidate.status === "Resume Shortlisted")}
@@ -42,7 +44,7 @@ const App = () => {
         onDragStart={onDragStart}
       />
       <KanbanColumn
-        title="Assessment passedd"
+        title="Assessment passed"
         candidates={candidates.filter((candidate) => candidate.status === "Assessment passed")}
         onDrop={onDrop}
         onDragOver={onDragOver}

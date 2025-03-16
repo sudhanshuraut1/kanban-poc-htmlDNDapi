@@ -1,9 +1,11 @@
 import KanbanCard from "./KanbanCard";
+import '../Kanban.css' ;
+import { Card } from "antd"
 
 
 const KanbanColumn = ({ title, candidates, onDrop, onDragOver ,onDragStart }) => {
     return (
-      <div
+      <Card
         className="kanban-column"
        onDragOver={onDragOver}
         onDrop={(e) => onDrop(e, title)}
@@ -12,7 +14,7 @@ const KanbanColumn = ({ title, candidates, onDrop, onDragOver ,onDragStart }) =>
         {candidates.map((candidate) => (
           <KanbanCard key={candidate.id} candidate={candidate} onDragStart={onDragStart} />
         ))}
-      </div>
+      </Card>
     );
   };
   
