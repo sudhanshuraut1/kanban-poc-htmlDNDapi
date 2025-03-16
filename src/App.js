@@ -42,7 +42,7 @@ const App = () => {
         onDragStart={onDragStart}
       />
       <KanbanColumn
-        title="Assessment passed"
+        title="Assessment passedd"
         candidates={candidates.filter((candidate) => candidate.status === "Assessment passed")}
         onDrop={onDrop}
         onDragOver={onDragOver}
