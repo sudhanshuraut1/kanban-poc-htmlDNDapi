@@ -1,14 +1,14 @@
 
 
 
-const KanbanCard = ({ task, onDragStart }) => {
+const KanbanCard = ({ candidate, onDragStart }) => {
     return (
       <div 
-        className="task-card"
+        className="candidate-card"
         draggable="true"
-        onDragStart={(e) => onDragStart(e, task.id)}
+        onDragStart={(e) => onDragStart(e, candidate.id)}
       >
-        {task.name}
+        {candidate.name}
       </div>
     );
   };

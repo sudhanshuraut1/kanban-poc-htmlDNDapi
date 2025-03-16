@@ -6,7 +6,7 @@ import KanbanColumn from "./temp/KanbanColumn";
 
 
 const App = () => {
-  const [tasks, setTasks] = useState([
+  const [candidates, setCandidates] = useState([
     { id: "1", name: "candidate 1", status: "Resume Shortlisted" },
     { id: "2", name: "candidate 2", status: "Assessment passed" },
     { id: "3", name: "candidate 3", status: "1st interview passed" },
@@ -14,8 +14,8 @@ const App = () => {
     { id: "5", name: "candidate 5", status: "job offered" }
   ]);
 
-  const onDragStart = (e, taskId) => {
-    e.dataTransfer.setData("taskId", taskId);
+  const onDragStart = (e, candidateId) => {
+    e.dataTransfer.setData("candidateId", candidateId);
   };
 
   const onDragOver = (e) => {   // allow drop
@@ -23,11 +23,11 @@ const App = () => {
   };
 
   const onDrop = (e, newStatus) => {
-    const taskId = e.dataTransfer.getData("taskId");
+    const candidateId = e.dataTransfer.getData("candidateId");
 
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === taskId ? { ...task, status: newStatus } : task
+    setCandidates((prevCandidates) =>
+      prevCandidates.map((candidate) =>
+        candidate.id === candidateId ? { ...candidate, status: newStatus } : candidate
       )
     );
   };
@@ -36,35 +36,35 @@ const App = () => {
     <div className="kanban-board">
       <KanbanColumn
         title="Resume Shortlisted"
-        tasks={tasks.filter((task) => task.status === "Resume Shortlisted")}
+        candidates={candidates.filter((candidate) => candidate.status === "Resume Shortlisted")}
         onDrop={onDrop}
         onDragOver={onDragOver}
         onDragStart={onDragStart}
       />
       <KanbanColumn
         title="Assessment passed"
-        tasks={tasks.filter((task) => task.status === "Assessment passed")}
+        candidates={candidates.filter((candidate) => candidate.status === "Assessment passed")}
         onDrop={onDrop}
         onDragOver={onDragOver}
         onDragStart={onDragStart}
       />
       <KanbanColumn
         title="1st interview passed"
-        tasks={tasks.filter((task) => task.status === "1st interview passed")}
+        candidates={candidates.filter((candidate) => candidate.status === "1st interview passed")}
         onDrop={onDrop}
         onDragOver={onDragOver}
         onDragStart={onDragStart}
       />
       <KanbanColumn
         title="final interview passed"
-        tasks={tasks.filter((task) => task.status === "final interview passed")}
+        candidates={candidates.filter((candidate) => candidate.status === "final interview passed")}
         onDrop={onDrop}
         onDragOver={onDragOver}
         onDragStart={onDragStart}
       />
       <KanbanColumn
         title="job offered"
-        tasks={tasks.filter((task) => task.status === "job offered")}
+        candidates={candidates.filter((candidate) => candidate.status === "job offered")}
         onDrop={onDrop}
         onDragOver={onDragOver}
         onDragStart={onDragStart}

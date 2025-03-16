@@ -1,7 +1,7 @@
 import KanbanCard from "./KanbanCard";
 
 
-const KanbanColumn = ({ title, tasks, onDrop, onDragOver ,onDragStart }) => {
+const KanbanColumn = ({ title, candidates, onDrop, onDragOver ,onDragStart }) => {
     return (
       <div
         className="kanban-column"
@@ -9,8 +9,8 @@ const KanbanColumn = ({ title, tasks, onDrop, onDragOver ,onDragStart }) => {
         onDrop={(e) => onDrop(e, title)}
       >
         <h3>{title}</h3>
-        {tasks.map((task) => (
-          <KanbanCard key={task.id} task={task} onDragStart={onDragStart} />
+        {candidates.map((candidate) => (
+          <KanbanCard key={candidate.id} candidate={candidate} onDragStart={onDragStart} />
         ))}
       </div>
     );
